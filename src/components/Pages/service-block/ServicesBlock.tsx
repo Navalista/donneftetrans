@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 import translate from '../../../i18n/translate'
 import { IMainBlock } from '../../../types/pages/main'
-import { HMainBlock } from '../../../i18n/helpers/index'
+// import { HMainBlock } from '../../../i18n/helpers/index'
 import st from './ServicesBlock.module.scss'
 import ServiceIcon from '../../UI/service-icon/ServiceIcon'
 import { useAppSelector } from '../../../hooks/redux'
@@ -13,7 +13,7 @@ const ServicesBlock: FC<{ content: IMainBlock[] }> = ({ content }) => {
    return (
       <div className={st.wrapper}>
          <h2>{translate('main-services', 'Services')}</h2>
-         <div className={st.services}>
+         {/* <div className={st.services}>
             {content.map((service, i) => {
                const { title, description } = service
                const { icon, image } = HMainBlock[i]
@@ -42,7 +42,7 @@ const ServicesBlock: FC<{ content: IMainBlock[] }> = ({ content }) => {
                   </div>
                )
             })}
-         </div>
+         </div> */}
       </div>
    )
 }
