@@ -3,7 +3,7 @@
       "baseUrl": ".",
       "paths": {
          "@/*": ["./src/*"],
-         "@/img/*": ["/assets/images"]
+         "@/img/*": ["./public/assets/images/*"]
       },
       "target": "es5",
       "lib": ["dom", "dom.iterable", "esnext"],

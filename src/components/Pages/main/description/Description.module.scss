@@ -1,0 +1,27 @@
+@import '/styles/variables';
+
+.wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   margin: 4rem auto;
+   max-width: 75rem;
+   .content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 600px;
+      h1 {
+         font-size: 1.2rem;
+         line-height: 1.4;
+         margin: 2.4rem 0;
+         color: rgba(255, 255, 255, 0);
+         text-shadow: 0 0 1.5px #2c2c2c;
+      }
+      span {
+         color: $color-first;
+         font-size: 2.5rem;
+         font-family: $font-1-semi-bold;
+      }
+   }
+}
