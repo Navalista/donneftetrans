@@ -1,20 +1,20 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
 import st from './FooterMenu.module.scss'
-import footer from '@/i18n/components/footer.json'
 import FooterDescription from './FooterDescription'
 import { ILayoutComponentProps } from '@/types/layout'
 import { CSSTransition } from 'react-transition-group'
 import { useIntl } from 'react-intl'
-import { IFooter } from '@/types/footer'
 import translate from '@/i18n/translate'
+import { FOOTER } from '@/constants/footer'
+import { default as DM } from '@/i18n/messages/defaultMessages'
 
 const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
    const [isDescription, setisDescription] = useState(false)
    const [descContent, setdescContent] = useState({})
    const [isScroll, setisScroll] = useState(false)
    const [isBlocks, setisBlocks] = useState(false)
-   const { blocks, copyright }: IFooter = footer
-   const refs = useRef<HTMLDivElement[]>([])
+   const [tip, setTip] = useState('')
+   const ref = useRef<HTMLDivElement>()
    const intl = useIntl()
 
    useEffect(() => {
@@ -30,9 +30,11 @@ const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
       <div className={st.wrapper}>
          <div className={st.section}>
             <div className={st.blocks + `${isDescription ? ' ' + st.active : ''}`}>
-               {blocks.map((block, i) => {
-                  const { id, icon } = block
-                  const tip = intl.formatMessage({ id: `footer-${id}.title` })
+               {FOOTER.map((item, i) => {
+                  const [type] = Object.keys(item)
+                  const { icon } = item[type]
+                  const tip = intl.formatMessage({ id: `footer-${type}.tip` })
+
                   return (
                      <CSSTransition
                         key={i}
@@ -47,13 +49,15 @@ const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
                      >
                         <div
                            className={st.block}
-                           data-type={id}
-                           ref={(e) => (refs.current[i] = e)}
+                           data-type={type}
+                           ref={ref}
                            data-tip={tip}
                            onClick={() => {
-                              setdescContent({ ...block, isDescription: isDescription })
+                              setdescContent({ type, icon, isDescription: isDescription })
                               setisDescription(true)
                            }}
+                           onMouseOver={() => setTip(tip)}
+                           onMouseOut={() => setTip('')}
                         >
                            <span
                               style={{
@@ -66,7 +70,11 @@ const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
                })}
             </div>
             <div className={st.copyright}>
-               <p>&#169; {translate(`footer-block.${copyright.id}`, copyright.defaultMessage)}</p>
+               {!tip ? (
+                  <p>&#169; {translate(`footer-copyright`, DM[`footer-copyright`].defaultMessage)}</p>
+               ) : (
+                  <p>{tip}</p>
+               )}
             </div>
          </div>
          <FooterDescription

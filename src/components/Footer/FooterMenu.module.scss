@@ -28,6 +28,7 @@
          bottom: 50px;
          transform: translateX(-50%);
          transition: opacity 0.5s;
+         gap: 1.875rem;
          .block {
             border-radius: 5px;
             padding: 5px;
@@ -38,27 +39,6 @@
             cursor: pointer;
             &:hover {
                border-color: $color-third;
-            }
-            &:hover::after {
-               opacity: 1;
-            }
-            &::after {
-               content: attr(data-tip);
-               position: absolute;
-               left: 50%;
-               top: -52px;
-               transform: translateX(-50%);
-               white-space: nowrap;
-               font-size: 14px;
-               background-color: #fff;
-               padding: 5px 10px;
-               border-radius: 30px;
-               border: 2px solid $color-second;
-               line-height: 1.5em;
-               opacity: 0;
-            }
-            &:not(:last-child) {
-               margin-right: 30px;
             }
             & > span {
                display: block;

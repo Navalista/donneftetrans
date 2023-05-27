@@ -6,7 +6,7 @@ import { DocumentsContent as content } from '@/i18n/pages/locales'
 import { useAppSelector } from '@/hooks/redux'
 import Loader from '@/components/UI/loader/Loader'
 
-const Documents: NextPage = ({ content }: IAboutProps) => {
+const Fleet: NextPage = ({ content }: IAboutProps) => {
    const lang = useAppSelector((state) => state.content.i18n)
    const loc = content[lang]
 
@@ -28,4 +28,4 @@ export const getStaticProps: GetStaticProps = async () => {
    }
 }
 
-export default Documents
+export default Fleet

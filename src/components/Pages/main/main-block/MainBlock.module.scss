@@ -26,7 +26,6 @@
    }
    .description {
       font-size: 0.8rem;
-      // font-weight: 500;
       text-shadow: 0 0 4px rgb(244, 244, 244);
       position: absolute;
       left: 47%;
@@ -35,7 +34,6 @@
       max-width: 40rem;
       line-height: 1.2;
       z-index: 1;
-      // mix-blend-mode: screen;
    }
    .background {
       display: flex;
@@ -104,7 +102,7 @@
    }
    .box {
       position: static;
-      transform: none;
+      transform: translate(0, 0);
       padding-top: 20px;
    }
 }

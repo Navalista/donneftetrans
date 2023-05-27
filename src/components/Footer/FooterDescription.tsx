@@ -3,6 +3,8 @@ import st from './FooterDescription.module.scss'
 import translate from '@/i18n/translate'
 import { CSSTransition } from 'react-transition-group'
 import { IFooterBlock } from '@/types/footer'
+import { default as DM } from '@/i18n/messages/defaultMessages'
+import { FOOTER } from '@/constants/footer'
 
 interface IDescription {
    descContent: IFooterBlock | Record<string, never>
@@ -11,7 +13,9 @@ interface IDescription {
 }
 
 const FooterDescription: FC<IDescription> = ({ descContent, isDescription, setisDescription }) => {
-   const { id, defaultMessage, icon } = descContent
+   const { type, icon } = descContent
+   const { phone } = FOOTER.find((obj) => 'phone' in obj)
+
    return (
       <CSSTransition
          in={isDescription}
@@ -23,13 +27,21 @@ const FooterDescription: FC<IDescription> = ({ descContent, isDescription, setis
             enterDone: st.enterDone
          }}
       >
-         <div data-type={id} className={st.card}>
+         <div data-type={type} className={st.card}>
             <span
                style={{
                   backgroundImage: `url(/assets/images/svg/footer-${icon})`
                }}
             />
-            <p>{translate(`footer-block.${id}`, defaultMessage)}</p>
+            {type ? (
+               type !== 'phone' ? (
+                  <p>{translate(`footer-${type}`, DM[`footer-${type}`].defaultMessage)}</p>
+               ) : (
+                  <a href={`tel:${phone.number.replace(/(?!^\+)\D/g, '')}`}>{phone.number}</a>
+               )
+            ) : (
+               ''
+            )}
             <button onClick={() => setisDescription(false)}>&#x2716;</button>
          </div>
       </CSSTransition>
