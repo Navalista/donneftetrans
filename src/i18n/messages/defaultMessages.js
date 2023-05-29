@@ -16,5 +16,6 @@ export default {
          'The shipping company Donneftetrans owns its own tanker fleet and carries out transportation mainly in the Caspian, Azov, Black, Marmara Seas and inland shipping. Company specializes in the transportation of crude oil and various bulk cargoes.'
    },
    'main-description.button': { defaultMessage: 'About us' },
-   'main-description.title': { defaultMessage: 'We are' }
+   'main-description.title': { defaultMessage: 'We are' },
+   'main-services.title': { defaultMessage: 'Our services' }
 }

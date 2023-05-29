@@ -5,8 +5,6 @@ import HeadingMain from '../../heading-main/HeadingMain'
 import MainBlockService from './MainBlockService'
 import css from './MainBlock.module.scss'
 import { IMainProps } from '@/types/pages/main'
-import { default as DM } from '@/i18n/messages/defaultMessages'
-import translate from '@/i18n/translate'
 
 import bg_1 from '@/img/pages/main/slider/main-bg-1.jpg'
 import bg_2 from '@/img/pages/main/slider/main-bg-2.jpg'

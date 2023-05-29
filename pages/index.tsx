@@ -6,8 +6,8 @@ import { IMainProps } from '@/types/pages/main'
 import { useAppSelector } from '@/hooks/redux'
 import MainBlock from '@/components/Pages/main/main-block/MainBlock'
 import Loader from '@/components/UI/loader/Loader'
-import ServicesBlock from '@/components/Pages/service-block/ServicesBlock'
 import Description from '@/components/Pages/main/description/Description'
+import ServicesBlock from '@/components/Pages/main/services-block/ServicesBlock'
 
 const Home: NextPage = ({ content }: IMainProps) => {
    const lang = useAppSelector((state) => state.content.i18n)
@@ -23,6 +23,7 @@ const Home: NextPage = ({ content }: IMainProps) => {
       <>
          <MainBlock content={content[lang]} />
          <Description />
+         <ServicesBlock content={content[lang].services} />
       </>
    )
 }

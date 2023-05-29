@@ -1,6 +1,7 @@
 @import '/styles/variables';
 
 .wrapper {
+   box-sizing: border-box;
    position: relative;
    text-transform: uppercase;
    border: 2px solid $color-second;
@@ -11,6 +12,10 @@
    cursor: pointer;
    min-width: 7rem;
    transition: background 0.3s, color 0.3s;
+   text-decoration: none;
+   display: block;
+   line-height: normal;
+   text-align: center;
    &[data-type='filled'] {
       color: #fff;
       background-color: $color-second;
