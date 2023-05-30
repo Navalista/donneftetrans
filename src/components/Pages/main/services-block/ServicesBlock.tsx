@@ -35,6 +35,7 @@ const ServicesBlock: FC<{ content: IMainBlock[] }> = ({ content }) => {
                      </div>
                      <div className={css.textblock}>
                         <h3>{title}</h3>
+                        <span style={{ backgroundImage: `url(/assets/images/svg/tech-icon-${i + 1}.svg)` }} />
                         <p>{description}</p>
                      </div>
                   </div>
