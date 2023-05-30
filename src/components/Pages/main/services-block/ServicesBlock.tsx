@@ -22,9 +22,13 @@ const ServicesBlock: FC<{ content: IMainBlock[] }> = ({ content }) => {
 
    return (
       <div className={css.wrapper}>
-         <div className={css.heading}>
-            <HeadingMain title={title} />
-         </div>
+         {!isLaptop ? (
+            <div className={css.heading}>
+               <HeadingMain title={title} />
+            </div>
+         ) : (
+            <h3>{title}</h3>
+         )}
          {content.map((service, i) => {
             const { title, description } = service
             return (

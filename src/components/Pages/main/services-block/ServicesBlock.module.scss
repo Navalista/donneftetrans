@@ -112,4 +112,17 @@
          }
       }
    }
+   @media (max-width: 1200px) {
+      h3 {
+         box-sizing: border-box;
+         width: 100%;
+         text-align: center;
+         padding: 0.5rem;
+         background-color: rgba(206, 206, 206, 0.2);
+         box-shadow: 0 0 1rem 0px rgba(206, 206, 206, 0.4);
+         font-size: 2rem;
+         margin-top: 1rem;
+         text-transform: uppercase;
+      }
+   }
 }
