@@ -6,4 +6,5 @@ export type gcButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
       disabled?: boolean
       buttonType?: 'anchor' | 'button'
       buttonStyle?: 'filled' | 'unfilled'
+      color?: 'primary' | 'secondary'
    }

@@ -27,7 +27,7 @@ const ServicesBlock: FC<{ content: IMainBlock[] }> = ({ content }) => {
                <HeadingMain title={title} />
             </div>
          ) : (
-            <h3>{title}</h3>
+            <div className={css.separate} />
          )}
          {content.map((service, i) => {
             const { title, description } = service

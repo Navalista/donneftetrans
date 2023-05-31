@@ -3,11 +3,19 @@ import React, { FC } from 'react'
 import css from './GC.button.module.scss'
 import { gcButtonProps } from './GC.types'
 
-const GCButton: FC<gcButtonProps> = ({ children, buttonStyle = 'unfilled', buttonType = 'button', disabled, href }) => {
+const GCButton: FC<gcButtonProps> = ({
+   children,
+   buttonStyle = 'unfilled',
+   buttonType = 'button',
+   color = 'primary',
+   disabled,
+   href
+}) => {
    switch (buttonType) {
       case 'button':
          return (
             <button
+               data-color={color}
                data-type={buttonStyle}
                onMouseDown={(e) => e.preventDefault()}
                className={css.wrapper}
@@ -19,7 +27,7 @@ const GCButton: FC<gcButtonProps> = ({ children, buttonStyle = 'unfilled', butto
       case 'anchor':
          return (
             <Link href={href}>
-               <a data-type={buttonStyle} className={css.wrapper}>
+               <a data-type={buttonStyle} data-color={color} className={css.wrapper}>
                   {children}
                </a>
             </Link>
