@@ -1,7 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import css from './ContactUs.module.scss'
 import GC from '../GC/GlobalComponent'
 import GoogleMapReact from 'google-map-react'
+import { useIntl } from 'react-intl'
+import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
+import { useAppSelector } from '@/hooks/redux'
 
 interface IMarker {
    lat: number
@@ -11,6 +14,9 @@ interface IMarker {
 const Marker: FC<IMarker> = () => <div className={css.marker} />
 
 const ContactUs: FC = () => {
+   const loc = useAppSelector((state) => state.content.currentLang)
+   const intl = useIntl()
+   const staticTranslate = (id: string) => intl.formatMessage({ id: id, defaultMessage: id })
    const defaultProps = {
       center: {
          lat: 47.22683336022236,
@@ -18,27 +24,107 @@ const ContactUs: FC = () => {
       },
       zoom: 11
    }
+   const initErrors = { name: '', mail: '', comment: '' }
+   const [data, setData] = useState({
+      name: '',
+      mail: '',
+      theme: staticTranslate('contacts-from.dropdown-1'),
+      comment: ''
+   })
+   const [errors, setErrors] = useState(initErrors)
+   const [isSelect, setisSelect] = useState(false)
+   const [isLoading, setisLoading] = useState(false)
+
+   const validation = () => {
+      const err = initErrors
+      const emailReg = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/
+      err['mail'] = !emailReg.test(data.mail) ? staticTranslate('errors-name.mail') : ''
+      err['name'] = !data.name
+         ? staticTranslate('errors-name.empty')
+         : data.name.length < 3
+         ? staticTranslate('errors-name.count')
+         : ''
+      err['comment'] = !data.comment ? staticTranslate('errors-name.comment') : ''
+      setErrors(err)
+      return Object.values(err).join('')
+   }
+
+   useEffect(() => {
+      setData({ ...data, theme: staticTranslate('contacts-from.dropdown-1') })
+      if (Object.values(errors).join('')) validation()
+   }, [loc])
+
+   const send = () => {
+      setisLoading(!isLoading)
+      // if (validation().length) return
+   }
+
+   const theme = (c: number) => {
+      setData({ ...data, theme: staticTranslate(`contacts-from.dropdown-${c}`) })
+      setisSelect(isLoading)
+   }
 
    return (
       <div className={css.wrapper}>
          <section>
-            <h5>Contact us</h5>
+            <h5>{dynamicTranslate('contacts-title')}</h5>
             <div className={css.block}>
                <div className={css.contact}>
-                  <div className={css.input}>
-                     <label>Name</label>
-                     <input placeholder='Jane Doe'></input>
+                  <div className={css.input + `${errors.name ? ' ' + css.error : ''}`}>
+                     <label htmlFor='name'>{dynamicTranslate('contacts-field.name')}</label>
+                     <input
+                        onFocus={() => setErrors({ ...errors, name: '' })}
+                        onBlur={validation}
+                        id='name'
+                        onChange={(e) => setData({ ...data, name: e.target.value })}
+                        placeholder={staticTranslate('contacts-field.name-ph')}
+                     />
+                     {errors.name && <p className={css.errorMessage}>{errors.name}</p>}
                   </div>
-                  <div className={css.input}>
-                     <label>E-Mail</label>
-                     <input placeholder='user@gmail.com'></input>
+                  <div className={css.input + `${errors.mail ? ' ' + css.error : ''}`}>
+                     <label htmlFor='mail'>{dynamicTranslate('contacts-field.mail')}</label>
+                     <input
+                        onFocus={() => setErrors({ ...errors, mail: '' })}
+                        onBlur={validation}
+                        id='mail'
+                        onChange={(e) => setData({ ...data, mail: e.target.value })}
+                        placeholder={staticTranslate('contacts-field.mail-ph')}
+                     />
+                     {errors.mail && <p className={css.errorMessage}>{errors.mail}</p>}
                   </div>
-                  <div className={css.input}>
-                     <label>Comment</label>
-                     <textarea placeholder='leave your comment...' />
+
+                  <div className={css.input + ' ' + css.dropdown}>
+                     <label htmlFor='theme'>{dynamicTranslate('contacts-field.dropdown')}</label>
+                     <input
+                        onClick={() => setisSelect(!isSelect)}
+                        value={data.theme}
+                        id='theme'
+                        className={css.input}
+                        readOnly
+                     />
+                     <button />
+                     {isSelect && (
+                        <div className={css.select}>
+                           <span onClick={() => theme(1)}>{dynamicTranslate('contacts-from.dropdown-1')}</span>
+                           <span onClick={() => theme(2)}>{dynamicTranslate('contacts-from.dropdown-2')}</span>
+                           <span onClick={() => theme(3)}>{dynamicTranslate('contacts-from.dropdown-3')}</span>
+                        </div>
+                     )}
                   </div>
-                  <GC.Button buttonStyle='filled' color='secondary'>
-                     Submit
+
+                  <div className={css.input + `${errors.comment ? ' ' + css.error : ''}`}>
+                     <label htmlFor='comment'>{dynamicTranslate('contacts-field.comment')}</label>
+                     <textarea
+                        onFocus={() => setErrors({ ...errors, comment: '' })}
+                        onBlur={validation}
+                        id='comment'
+                        onChange={(e) => setData({ ...data, comment: e.target.value })}
+                        placeholder={staticTranslate('contacts-field.comment-ph')}
+                     />
+                     {errors.comment && <p className={css.errorMessage}>{errors.comment}</p>}
+                  </div>
+                  <GC.Button isLoading={isLoading} onClick={send} buttonStyle='filled' color='secondary'>
+                     {dynamicTranslate('contacts-submit')}
                   </GC.Button>
                </div>
                <div className={css.map}>

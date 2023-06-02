@@ -4,9 +4,8 @@ import FooterDescription from './FooterDescription'
 import { ILayoutComponentProps } from '@/types/layout'
 import { CSSTransition } from 'react-transition-group'
 import { useIntl } from 'react-intl'
-import translate from '@/i18n/translate'
 import { FOOTER } from '@/constants/footer'
-import { default as DM } from '@/i18n/messages/defaultMessages'
+import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 
 const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
    const [isDescription, setisDescription] = useState(false)
@@ -26,6 +25,8 @@ const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
       setisBlocks(scrollStep > 0 || !isScroll)
    })
 
+   const staticTranslate = (id: string) => intl.formatMessage({ id: id, defaultMessage: id })
+
    return (
       <div className={st.wrapper}>
          <div className={st.section}>
@@ -33,8 +34,6 @@ const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
                {FOOTER.map((item, i) => {
                   const [type] = Object.keys(item)
                   const { icon } = item[type]
-                  const tip = intl.formatMessage({ id: `footer-${type}.tip` })
-
                   return (
                      <CSSTransition
                         key={i}
@@ -51,12 +50,12 @@ const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
                            className={st.block}
                            data-type={type}
                            ref={ref}
-                           data-tip={tip}
+                           data-tip={staticTranslate(`footer-${type}.tip`)}
                            onClick={() => {
                               setdescContent({ type, icon, isDescription: isDescription })
                               setisDescription(true)
                            }}
-                           onMouseOver={() => setTip(tip)}
+                           onMouseOver={() => setTip(staticTranslate(`footer-${type}.tip`))}
                            onMouseOut={() => setTip('')}
                         >
                            <span
@@ -70,11 +69,7 @@ const FooterMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
                })}
             </div>
             <div className={st.copyright}>
-               {!tip ? (
-                  <p>&#169; {translate(`footer-copyright`, DM[`footer-copyright`].defaultMessage)}</p>
-               ) : (
-                  <p>{tip}</p>
-               )}
+               {!tip ? <p>&#169; {dynamicTranslate(`footer-copyright`)}</p> : <p>{tip}</p>}
             </div>
          </div>
          <FooterDescription

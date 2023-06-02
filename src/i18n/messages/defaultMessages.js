@@ -17,5 +17,21 @@ export default {
    },
    'main-description.button': { defaultMessage: 'About us' },
    'main-description.title': { defaultMessage: 'We are' },
-   'main-services.title': { defaultMessage: 'Our services' }
+   'main-services.title': { defaultMessage: 'Our services' },
+   'contacts-title': { defaultMessage: 'Contact us' },
+   'contacts-field.name': { defaultMessage: 'Name' },
+   'contacts-field.name-ph': { defaultMessage: 'Jane Doe' },
+   'contacts-field.mail': { defaultMessage: 'E-Mail' },
+   'contacts-field.mail-ph': { defaultMessage: 'user@gmail.com' },
+   'contacts-field.comment': { defaultMessage: 'Comment' },
+   'contacts-field.comment-ph': { defaultMessage: 'leave your comment...' },
+   'contacts-field.dropdown': { defaultMessage: 'Theme' },
+   'contacts-from.dropdown-1': { defaultMessage: 'For chartering' },
+   'contacts-from.dropdown-2': { defaultMessage: 'Employment of seafarers' },
+   'contacts-from.dropdown-3': { defaultMessage: 'For technical management' },
+   'contacts-submit': { defaultMessage: 'Submit' },
+   'errors-name.empty': { defaultMessage: 'Name field must not be empty' },
+   'errors-name.count': { defaultMessage: 'Name cannot be less than 3 characters' },
+   'errors-name.mail': { defaultMessage: 'Invalid email format' },
+   'errors-name.comment': { defaultMessage: 'Comment field must not be empty' }
 }

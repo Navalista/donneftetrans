@@ -1,10 +1,9 @@
 import React, { FC } from 'react'
 import st from './FooterDescription.module.scss'
-import translate from '@/i18n/translate'
 import { CSSTransition } from 'react-transition-group'
 import { IFooterBlock } from '@/types/footer'
-import { default as DM } from '@/i18n/messages/defaultMessages'
 import { FOOTER } from '@/constants/footer'
+import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 
 interface IDescription {
    descContent: IFooterBlock | Record<string, never>
@@ -35,7 +34,7 @@ const FooterDescription: FC<IDescription> = ({ descContent, isDescription, setis
             />
             {type ? (
                type !== 'phone' ? (
-                  <p>{translate(`footer-${type}`, DM[`footer-${type}`].defaultMessage)}</p>
+                  <p>{dynamicTranslate(`footer-${type}`)}</p>
                ) : (
                   <a href={`tel:${phone.number.replace(/(?!^\+)\D/g, '')}`}>{phone.number}</a>
                )

@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import React, { FC, useState } from 'react'
-import translate from '../../i18n/translate'
 import BurgerButton from '../UI/btn-burger/BurgerButton'
 import st from './HeaderMobileMenu.module.scss'
 import header from '../../i18n/components/header.json'
 import { ILayoutComponentProps } from '../../types/layout'
 import { IHeader } from '../../types/header'
+import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 
 const HeaderMobileMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
    const [isOpen, setisOpen] = useState(false)
@@ -27,9 +27,7 @@ const HeaderMobileMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
                      return (
                         <div key={i} className={st.link}>
                            <Link href={link.href}>
-                              <a onClick={() => setisOpen(false)}>
-                                 {translate(`header-link.${link.id}`, link.defaultMessage)}
-                              </a>
+                              <a onClick={() => setisOpen(false)}>{dynamicTranslate(`header-link.${link.id}`)}</a>
                            </Link>
                         </div>
                      )

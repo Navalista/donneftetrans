@@ -1,18 +1,18 @@
 import Image from 'next/image'
 import React, { FC } from 'react'
-import translate from '../../../i18n/translate'
 import { IMainBlock } from '../../../types/pages/main'
 // import { HMainBlock } from '../../../i18n/helpers/index'
 import st from './ServicesBlock.module.scss'
 import ServiceIcon from '../../UI/service-icon/ServiceIcon'
 import { useAppSelector } from '../../../hooks/redux'
+import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 
 const ServicesBlock: FC<{ content: IMainBlock[] }> = ({ content }) => {
    const isMobile = useAppSelector((state) => state.content.mediaQuery.isMobile)
 
    return (
       <div className={st.wrapper}>
-         <h2>{translate('main-services', 'Services')}</h2>
+         <h2>{dynamicTranslate('main-services')}</h2>
          {/* <div className={st.services}>
             {content.map((service, i) => {
                const { title, description } = service

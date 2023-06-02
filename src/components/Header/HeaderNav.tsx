@@ -1,10 +1,9 @@
 import React from 'react'
 import css from './HeaderNav.module.scss'
 import Link from 'next/link'
-import translate from '../../i18n/translate'
 import { useAppSelector } from '@/hooks/redux'
 import { PAGES } from '@/constants/pages'
-import { default as DM } from '@/i18n/messages/defaultMessages'
+import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 
 const HeaderNav = () => {
    const currentPage = useAppSelector((state) => state.content.currentPage)
@@ -18,7 +17,7 @@ const HeaderNav = () => {
             return (
                <Link key={i} href={href}>
                   <a className={css.link + ` ${currentPage === name ? css.active : ''}`}>
-                     {translate(`header-link.${name}`, DM[`header-link.${name}`].defaultMessage)}
+                     {dynamicTranslate(`header-link.${name}`)}
                   </a>
                </Link>
             )

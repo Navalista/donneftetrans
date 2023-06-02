@@ -18,6 +18,22 @@ export default {
          'Судоходная компания Доннефтетранс владеет собственным танкерным флотом и осуществляет перевозки преимущественно в Каспийском, Азовском, Черном, Мраморном морях, а также по ВВП РФ. Компания специализируется на транспортировке сырой нефти и различных наливных грузов.',
       'main-description.button': 'О нас',
       'main-description.title': 'Немного о нас',
-      'main-services.title': 'Наши услуги'
+      'main-services.title': 'Наши услуги',
+      'contacts-title': 'Контакты',
+      'contacts-field.name': 'Имя',
+      'contacts-field.name-ph': 'Иван Иванов',
+      'contacts-field.mail': 'Почта',
+      'contacts-field.mail-ph': 'user@ya.ru',
+      'contacts-field.comment': 'Комментарий',
+      'contacts-field.comment-ph': 'оставьте свой комментарий...',
+      'contacts-field.dropdown': 'Тема',
+      'contacts-from.dropdown-1': 'По вопросам фрахтования',
+      'contacts-from.dropdown-2': 'Трудоустройство плавсостава',
+      'contacts-from.dropdown-3': 'По вопросам технического менеджмента',
+      'contacts-submit': 'Отправить',
+      'errors-name.empty': 'Поле имени не должно быть пустым',
+      'errors-name.count': 'Имя не может быть короче 3 символов',
+      'errors-name.mail': 'Неверный формат электронной почты',
+      'errors-name.comment': 'Поле комментария не должно быть пустым'
    }
 }

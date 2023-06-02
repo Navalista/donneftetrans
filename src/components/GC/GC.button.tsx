@@ -9,19 +9,22 @@ const GCButton: FC<gcButtonProps> = ({
    buttonType = 'button',
    color = 'primary',
    disabled,
-   href
+   href,
+   onClick,
+   isLoading = false
 }) => {
    switch (buttonType) {
       case 'button':
          return (
             <button
+               onClick={onClick}
                data-color={color}
                data-type={buttonStyle}
                onMouseDown={(e) => e.preventDefault()}
-               className={css.wrapper}
+               className={css.wrapper + `${isLoading ? ' ' + css.loading : ''}`}
                data-disabled={disabled}
             >
-               {children}
+               {isLoading ? <span className={css.loader} /> : children}
             </button>
          )
       case 'anchor':

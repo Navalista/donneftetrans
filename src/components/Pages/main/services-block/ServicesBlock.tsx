@@ -18,13 +18,13 @@ const ServicesBlock: FC<{ content: IMainBlock[] }> = ({ content }) => {
    const ref = useRef()
    const isHovering = useHover(ref)
    const images = [bg_1, bg_2, bg_3, bg_4]
-   const title = intl.formatMessage({ id: 'main-services.title' })
+   const staticTranslate = (id: string) => intl.formatMessage({ id: id, defaultMessage: id })
 
    return (
       <div className={css.wrapper}>
          {!isLaptop ? (
             <div className={css.heading}>
-               <HeadingMain title={title} />
+               <HeadingMain title={staticTranslate('main-services.title')} />
             </div>
          ) : (
             <div className={css.separate} />
