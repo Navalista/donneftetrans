@@ -34,6 +34,7 @@ export default {
       'errors-name.empty': 'Поле имени не должно быть пустым',
       'errors-name.count': 'Имя не может быть короче 3 символов',
       'errors-name.mail': 'Неверный формат электронной почты',
-      'errors-name.comment': 'Поле комментария не должно быть пустым'
+      'errors-name.comment': 'Поле комментария не должно быть пустым',
+      'about-title': 'Мы Доннефтетранс'
    }
 }

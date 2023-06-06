@@ -1,10 +1,8 @@
-import cert_desc from './cert.md'
+import description from './description.md'
 import React, { FC } from 'react'
-import 'swiper/css'
-import 'swiper/css/effect-cards'
 import MarkdownComponent from '@/HOC/MarkdownComponent'
 
-type T = 'cert_desc'
+type T = 'description'
 
 interface IContent {
    type: T
@@ -13,8 +11,8 @@ interface IContent {
 
 export const Content: FC<IContent> = ({ type, className }) => {
    switch (type) {
-      case 'cert_desc':
-         return <MarkdownComponent className={className} content={cert_desc} />
+      case 'description':
+         return <MarkdownComponent className={className} content={description} />
       default:
          return
    }

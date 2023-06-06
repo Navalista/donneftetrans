@@ -34,6 +34,7 @@ export default {
       'errors-name.empty': 'Name field must not be empty',
       'errors-name.count': 'Name cannot be less than 3 characters',
       'errors-name.mail': 'Invalid email format',
-      'errors-name.comment': 'Comment field must not be empty'
+      'errors-name.comment': 'Comment field must not be empty',
+      'about-title': 'We Donneftetrans'
    }
 }
