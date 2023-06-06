@@ -3,22 +3,36 @@ import { GetStaticProps, NextPage } from 'next'
 import css from './index.module.scss'
 import { IAboutProps } from '@/types/pages/about'
 import { AboutContent as content } from '@/i18n/pages/locales'
-import { useAppSelector } from '@/hooks/redux'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import Loader from '@/components/UI/loader/Loader'
 import { Content as MD } from '@/i18n/pages/locales/en-US/md/about-us'
 import { SERVICES } from '@/constants/services'
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
+import Modal from '@/components/UI/modals/Modal'
+import Image from 'next/image'
+import { ContentActions } from '@/store/reducers/contentReducer'
+
+import license from '@/img/pages/about-us/lic.jpg'
+import license_men from '@/img/pages/about-us/lic-min.jpg'
 
 const About: NextPage = ({ content }: IAboutProps) => {
    const lang = useAppSelector((state) => state.content.i18n)
    const services = content[lang]
    const [isLoading, setLoading] = useState(false)
+   const modalProps = useAppSelector((state) => state.content.modalProps)
+   const dispatch = useAppDispatch()
+
+   const zoom = () => {
+      dispatch(ContentActions.setModalProps(license.src))
+      dispatch(ContentActions.toggleModalShow(true))
+   }
 
    useEffect(() => {
       setLoading(false)
    })
 
    if (isLoading) return <Loader />
+   const width = 500
 
    return (
       <div className={css.wrapper}>
@@ -27,7 +41,11 @@ const About: NextPage = ({ content }: IAboutProps) => {
                <h1>{dynamicTranslate('about-title')}</h1>
                <span />
             </div>
-            <MD type='description' className={css.textDesc} />
+            <div className={css.textDesc}>{dynamicTranslate('about-description')}</div>
+            <div className={css.license}>
+               <Image src={license_men} width={width} height={width * 1.43} alt='License' />
+               <button onClick={zoom} />
+            </div>
             {services.map((service, i) => {
                const { title, description } = service
                return (
@@ -46,6 +64,7 @@ const About: NextPage = ({ content }: IAboutProps) => {
                )
             })}
          </div>
+         <Modal type='zoomImage' image={modalProps} />
       </div>
    )
 }

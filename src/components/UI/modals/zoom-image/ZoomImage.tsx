@@ -5,7 +5,6 @@ import Loader from '../../loader/Loader'
 import css from './ZoomImage.module.scss'
 
 const ZoomImage: FC<{ image: string }> = ({ image }) => {
-   const src = `/assets/images/pages/main/slider/${image}`
    const [isLoading, setLoading] = useState(true)
    const dispatch = useAppDispatch()
 
@@ -16,7 +15,7 @@ const ZoomImage: FC<{ image: string }> = ({ image }) => {
 
    useEffect(() => {
       const i = new Image()
-      i.src = src
+      i.src = image
       i.onload = () => setLoading(false)
    })
 
@@ -27,7 +26,7 @@ const ZoomImage: FC<{ image: string }> = ({ image }) => {
                <Loader className={css.wrapper} />
             </div>
          ) : (
-            <div onClick={close} style={{ backgroundImage: `url(${src})` }} className={css.image} />
+            <div onClick={close} style={{ backgroundImage: `url(${image})` }} className={css.image} />
          )}
       </div>
    )
