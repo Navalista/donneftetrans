@@ -6,8 +6,6 @@ import { default as Career_EN } from './en-US/career.json'
 import { default as Career_RU } from './ru-RU/career.json'
 import { default as Contacts_EN } from './en-US/contacts.json'
 import { default as Contacts_RU } from './ru-RU/contacts.json'
-import { default as Documents_EN } from './en-US/documents.json'
-import { default as Documents_RU } from './ru-RU/documents.json'
 
 export const MainContent = {
    en: Main_EN,
@@ -27,9 +25,4 @@ export const AboutContent = {
 export const ContactsContent = {
    en: Contacts_EN,
    ru: Contacts_RU
-}
-
-export const DocumentsContent = {
-   en: Documents_EN,
-   ru: Documents_RU
 }

@@ -56,29 +56,6 @@
             width: 100%;
          }
       }
-      .heading {
-         display: flex;
-         align-items: flex-end;
-         justify-content: center;
-         padding: 2rem 1rem 2rem;
-         span {
-            display: block;
-            margin-left: 0.5rem;
-            width: 100px;
-            height: 20px;
-            margin-bottom: 0.5rem;
-            background-image: url(/assets/images/svg/label-decor.svg);
-            background-repeat: no-repeat;
-            @media (max-width: 1000px) {
-               display: none;
-            }
-         }
-         h1 {
-            font-size: 2rem;
-            text-transform: uppercase;
-            text-align: center;
-         }
-      }
       h3 {
          font-size: 1.2rem;
          font-family: $font-1-semi-bold;

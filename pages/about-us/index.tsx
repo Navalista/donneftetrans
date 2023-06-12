@@ -5,7 +5,6 @@ import { IAboutProps } from '@/types/pages/about'
 import { AboutContent as content } from '@/i18n/pages/locales'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import Loader from '@/components/UI/loader/Loader'
-import { Content as MD } from '@/i18n/pages/locales/en-US/md/about-us'
 import { SERVICES } from '@/constants/services'
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 import Modal from '@/components/UI/modals/Modal'
@@ -14,6 +13,7 @@ import { ContentActions } from '@/store/reducers/contentReducer'
 
 import license from '@/img/pages/about-us/lic.jpg'
 import license_men from '@/img/pages/about-us/lic-min.jpg'
+import GC from '@/components/GC/GlobalComponent'
 
 const About: NextPage = ({ content }: IAboutProps) => {
    const lang = useAppSelector((state) => state.content.i18n)
@@ -37,10 +37,7 @@ const About: NextPage = ({ content }: IAboutProps) => {
    return (
       <div className={css.wrapper}>
          <div className={css.info}>
-            <div className={css.heading}>
-               <h1>{dynamicTranslate('about-title')}</h1>
-               <span />
-            </div>
+            <GC.Heading>{dynamicTranslate('about-title')}</GC.Heading>
             <div className={css.textDesc}>{dynamicTranslate('about-description')}</div>
             <div className={css.license}>
                <Image src={license_men} width={width} height={width * 1.43} alt='License' />

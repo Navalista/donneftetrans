@@ -5,6 +5,7 @@ import GoogleMapReact from 'google-map-react'
 import { useIntl } from 'react-intl'
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 import { useAppSelector } from '@/hooks/redux'
+import { useRouter } from 'next/router'
 
 interface IMarker {
    lat: number
@@ -15,6 +16,7 @@ const Marker: FC<IMarker> = () => <div className={css.marker} />
 
 const ContactUs: FC = () => {
    const loc = useAppSelector((state) => state.content.currentLang)
+   const router = useRouter()
    const intl = useIntl()
    const staticTranslate = (id: string) => intl.formatMessage({ id: id, defaultMessage: id })
    const defaultProps = {
@@ -24,13 +26,14 @@ const ContactUs: FC = () => {
       },
       zoom: 11
    }
-   const initErrors = { name: '', mail: '', comment: '' }
-   const [data, setData] = useState({
+   const initData = {
       name: '',
       mail: '',
       theme: staticTranslate('contacts-from.dropdown-1'),
       comment: ''
-   })
+   }
+   const initErrors = { name: '', mail: '', comment: '' }
+   const [data, setData] = useState(initData)
    const [errors, setErrors] = useState(initErrors)
    const [isSelect, setisSelect] = useState(false)
    const [isLoading, setisLoading] = useState(false)
@@ -53,6 +56,11 @@ const ContactUs: FC = () => {
       setData({ ...data, theme: staticTranslate('contacts-from.dropdown-1') })
       if (Object.values(errors).join('')) validation()
    }, [loc])
+
+   useEffect(() => {
+      setErrors(initErrors)
+      setisSelect(false)
+   }, [router.pathname])
 
    const send = () => {
       setisLoading(!isLoading)
