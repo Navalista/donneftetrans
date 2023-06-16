@@ -5,6 +5,8 @@ import { IAboutProps } from '@/types/pages/about'
 import { CareerContent as content } from '@/i18n/pages/locales'
 import { useAppSelector } from '@/hooks/redux'
 import Loader from '@/components/UI/loader/Loader'
+import GC from '@/components/GC/GlobalComponent'
+import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 
 const Career: NextPage = ({ content }: IAboutProps) => {
    const lang = useAppSelector((state) => state.content.i18n)
@@ -12,11 +14,11 @@ const Career: NextPage = ({ content }: IAboutProps) => {
 
    const [isLoading, setLoading] = useState(true)
 
-   if (isLoading) return <Loader />
+   if (!isLoading) return <Loader />
 
    return (
       <div className={st.wrapper}>
-         <h1>{loc.title}</h1>
+         <GC.Heading>{dynamicTranslate('career-title')}</GC.Heading>
       </div>
    )
 }

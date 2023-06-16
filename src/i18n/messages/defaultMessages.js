@@ -18,6 +18,7 @@ export default {
    'main-description.button': { defaultMessage: 'About us' },
    'main-description.title': { defaultMessage: 'We are' },
    'main-services.title': { defaultMessage: 'Our services' },
+   'career-title': { defaultMessage: 'Career' },
    'contacts-title': { defaultMessage: 'Contact us' },
    'contacts-field.name': { defaultMessage: 'Name' },
    'contacts-field.name-ph': { defaultMessage: 'Jane Doe' },
@@ -40,6 +41,25 @@ export default {
    'errors-name.count': { defaultMessage: 'Name cannot be less than 3 characters' },
    'errors-name.mail': { defaultMessage: 'Invalid email format' },
    'errors-name.comment': { defaultMessage: 'Comment field must not be empty' },
+   'fleet-title': { defaultMessage: 'Our Fleet' },
+   'fleet-tankers.oil': { defaultMessage: 'Oil tankers' },
+   'fleet-tankers.oil-desc': {
+      defaultMessage:
+         'The fleet consists of 2 river-sea tankers. Vessels are intended for transportation of crude oil, oil products.'
+   },
+   'fleet-tankers.product': { defaultMessage: 'Product tankers' },
+   'fleet-tankers.product-desc': {
+      defaultMessage:
+         'The fleet consists of 3 river-sea tankers. Vessels are designed for the carriage of vegetable oils, molasses, gasoline and other chemical cargoes transported in bulk.'
+   },
+   'fleet-table.name': { defaultMessage: 'Vessel Name' },
+   'fleet-table.class': { defaultMessage: 'Vessel Class' },
+   'fleet-table.deadweight': { defaultMessage: 'Deadweight' },
+   'fleet-captain-shemilkin': { defaultMessage: 'Captain Shemilkin' },
+   'fleet-captain-pshenitsin': { defaultMessage: 'Captain Pshenitsin' },
+   'fleet-samara-city': { defaultMessage: 'Samara City' },
+   'fleet-astrakhan-city': { defaultMessage: 'Astrakhan City' },
+   'fleet-kazan-city': { defaultMessage: 'Kazan City' },
    'about-title': { defaultMessage: 'We Donneftetrans' },
    'about-description': {
       defaultMessage:

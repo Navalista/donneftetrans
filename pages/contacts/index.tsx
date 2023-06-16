@@ -36,13 +36,16 @@ const Contacts: NextPage = ({ content }: IContactsProps) => {
                   <a href={`mailto:${mail}`}>{mail}</a>
                </div>
                <div className={css.block}>
-                  <h4>{dynamicTranslate('contacts-page.phone')}:</h4>
-                  <span className={css.phone} />
-                  <div>
-                     <h5>{dynamicTranslate('contacts-page.p-sd')}</h5>
-                     <a href={`tel:${pre(tel_sd)}}`}>{tel}</a>
-                  </div>
-
+                  {tel_sd && (
+                     <>
+                        <h4>{dynamicTranslate('contacts-page.phone')}:</h4>
+                        <span className={css.phone} />
+                        <div>
+                           <h5>{dynamicTranslate('contacts-page.p-sd')}</h5>
+                           <a href={`tel:${pre(tel_sd)}}`}>{tel_sd}</a>
+                        </div>
+                     </>
+                  )}
                   <h4>{dynamicTranslate('contacts-page.phone')}:</h4>
                   <span className={css.phone} />
                   <div>
@@ -56,12 +59,16 @@ const Contacts: NextPage = ({ content }: IContactsProps) => {
                         )
                      })}
                   </div>
-                  <h4>{dynamicTranslate('contacts-page.phone')}:</h4>
-                  <span className={css.phone} />
-                  <div>
-                     <h5>{dynamicTranslate('contacts-page.p-td')}</h5>
-                     <a href={`tel:${pre(tel_td)}`}>{tel}</a>
-                  </div>
+                  {tel_td && (
+                     <>
+                        <h4>{dynamicTranslate('contacts-page.phone')}:</h4>
+                        <span className={css.phone} />
+                        <div>
+                           <h5>{dynamicTranslate('contacts-page.p-td')}</h5>
+                           <a href={`tel:${pre(tel_td)}`}>{tel_td}</a>
+                        </div>
+                     </>
+                  )}
                </div>
             </div>
          </div>
