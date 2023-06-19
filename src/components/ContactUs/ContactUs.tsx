@@ -6,6 +6,7 @@ import { useIntl } from 'react-intl'
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 import { useAppSelector } from '@/hooks/redux'
 import { useRouter } from 'next/router'
+import axios from 'axios'
 
 interface IMarker {
    lat: number
@@ -62,9 +63,18 @@ const ContactUs: FC = () => {
       setisSelect(false)
    }, [router.pathname])
 
-   const send = () => {
-      setisLoading(!isLoading)
-      // if (validation().length) return
+   const send = async () => {
+      setisLoading(true)
+      const isNotValid = validation()
+      if (isNotValid) return setisLoading(false)
+      try {
+         const response = await axios.post('/api/sendEmail', data)
+         console.log('Success:', response.data)
+      } catch (error) {
+         console.error('Error:', error)
+      } finally {
+         setisLoading(false)
+      }
    }
 
    const theme = (c: number) => {
@@ -113,9 +123,11 @@ const ContactUs: FC = () => {
                      <button />
                      {isSelect && (
                         <div className={css.select}>
-                           <span onClick={() => theme(1)}>{dynamicTranslate('contacts-from.dropdown-1')}</span>
-                           <span onClick={() => theme(2)}>{dynamicTranslate('contacts-from.dropdown-2')}</span>
-                           <span onClick={() => theme(3)}>{dynamicTranslate('contacts-from.dropdown-3')}</span>
+                           {[1, 2, 3].map((n) => (
+                              <span key={n} onClick={() => theme(n)}>
+                                 {dynamicTranslate(`contacts-from.dropdown-${n}`)}
+                              </span>
+                           ))}
                         </div>
                      )}
                   </div>
