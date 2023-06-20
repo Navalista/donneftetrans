@@ -16,11 +16,12 @@ export default async function handler(req, res) {
       const { name, mail, theme, comment } = req.body
       let mailOptions = {
          from: process.env.MAIL_USER,
-         to: 'vreal.idea@gmail.com',
+         to: process.env.EMAIL,
          subject: `Message from ${name}`,
-         text: `${theme}\n${comment}\nFrom: ${mail}`
+         html: `<h2 style='background-color: #1f3b90; width: fit-content; color: #fff; padding: 2px 10px 0; border-radius: 8px;'>Theme: ${theme}</h2>
+                <p style='font-size: 16px;'>Message: ${comment}</p>
+                <p style='font-size: 16px; color: #1f3b90;'>From: ${mail}</p>`
       }
-
       try {
          let info = await transporter.sendMail(mailOptions)
          console.log('Email sent: ' + info.response)
