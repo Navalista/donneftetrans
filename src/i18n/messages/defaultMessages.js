@@ -55,11 +55,19 @@ export default {
    'fleet-table.name': { defaultMessage: 'Vessel Name' },
    'fleet-table.class': { defaultMessage: 'Vessel Class' },
    'fleet-table.deadweight': { defaultMessage: 'Deadweight' },
-   'fleet-captain-shemilkin': { defaultMessage: 'Captain Shemilkin' },
-   'fleet-captain-pshenitsin': { defaultMessage: 'Captain Pshenitsin' },
+   'fleet-captain-shemilkin': { defaultMessage: 'Kapitan Shemilkin' },
+   'fleet-captain-pshenitsin': { defaultMessage: 'Kapitan Pshenitsin' },
    'fleet-samara-city': { defaultMessage: 'Samara City' },
    'fleet-astrakhan-city': { defaultMessage: 'Astrakhan City' },
    'fleet-kazan-city': { defaultMessage: 'Kazan City' },
+   'career-vac-ship': { defaultMessage: 'Vacancies on ships' },
+   'career-vac-coast': { defaultMessage: 'Vacancies on the coast' },
+   'career-vac-resume': { defaultMessage: 'To send a resume' },
+   'career-vac.title-ship': {
+      defaultMessage:
+         'We invite officers and ratings to work on our vessels. We offer formal employment, decent wages, career opportunities. To consider employment, you must fill out a '
+   },
+   'career-resume.link': { defaultMessage: "seafarer's questionnaire." },
    'about-title': { defaultMessage: 'We Donneftetrans' },
    'about-description': {
       defaultMessage:

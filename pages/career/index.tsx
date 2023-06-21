@@ -1,34 +1,37 @@
-import React, { useState } from 'react'
-import { GetStaticProps, NextPage } from 'next'
-import st from './index.module.scss'
-import { IAboutProps } from '@/types/pages/about'
-import { CareerContent as content } from '@/i18n/pages/locales'
-import { useAppSelector } from '@/hooks/redux'
+import React, { useEffect, useState } from 'react'
+import { NextPage } from 'next'
+import css from './index.module.scss'
 import Loader from '@/components/UI/loader/Loader'
 import GC from '@/components/GC/GlobalComponent'
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
+import Image from 'next/image'
+import Tabs from '@/components/Pages/career-block/tabs/Tabs'
+import { TabsProps } from '@/constants/career'
+import TabsContent from '@/components/Pages/career-block/tabs-content/TabsContent'
 
-const Career: NextPage = ({ content }: IAboutProps) => {
-   const lang = useAppSelector((state) => state.content.i18n)
-   const loc = content[lang]
+const Career: NextPage = () => {
+   const [tab, setTab] = useState(0)
 
    const [isLoading, setLoading] = useState(true)
 
-   if (!isLoading) return <Loader />
+   useEffect(() => {
+      setLoading(false)
+   })
+
+   if (isLoading) return <Loader />
 
    return (
-      <div className={st.wrapper}>
+      <div className={css.wrapper}>
          <GC.Heading>{dynamicTranslate('career-title')}</GC.Heading>
+         <div className={css.block}>
+            <Tabs setTab={setTab} tabs={TabsProps} />
+            <div className={css.image}>
+               <Image src={`/assets/images/pages/career/${TabsProps[tab]._id}.png`} layout='fill' alt='License' />
+            </div>
+            <TabsContent tab={tab} />
+         </div>
       </div>
    )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-   return {
-      props: {
-         content
-      }
-   }
 }
 
 export default Career

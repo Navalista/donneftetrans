@@ -52,11 +52,17 @@ export default {
       'fleet-table.name': 'Vessel Name',
       'fleet-table.class': 'Vessel Class',
       'fleet-table.deadweight': 'Deadweight',
-      'fleet-captain-shemilkin': 'Captain Shemilkin',
-      'fleet-captain-pshenitsin': 'Captain Pshenitsin',
+      'fleet-captain-shemilkin': 'Kapitan Shemilkin',
+      'fleet-captain-pshenitsin': 'Kapitan Pshenitsin',
       'fleet-samara-city': 'Samara City',
       'fleet-astrakhan-city': 'Astrakhan City',
       'fleet-kazan-city': 'Kazan City',
+      'career-vac-ship': 'Vacancies on ships',
+      'career-vac-coast': 'Vacancies on the coast',
+      'career-vac-resume': 'To send a resume',
+      'career-vac.title-ship':
+         'We invite officers and ratings to work on our vessels. We offer formal employment, decent wages, career opportunities. To consider employment, you must fill out a ',
+      'career-resume.link': "seafarer's questionnaire.",
       'about-title': 'We Donneftetrans',
       'about-description':
          'Donneftetrans is a shipping company based in Rostov-on-Don, operating its own fleet of tankers and product tankers of the river-sea class. The company operates in accordance with all norms and rules for cargo transportation on inland waterways, the Code of Inland Water Transport of the Russian Federation, the Classification Society, and international maritime conventions. Our fleet transports a wide range of bulk cargo: petroleum products, sunflower oil, molasses, gasoline, and other chemical cargoes transported in bulk. All vessels fly under the Russian flag and are classified by the Russian Maritime Register of Shipping (RMRS). The company has a valid license from the UGMRN Rostotransnadzor, which issued a license for the transportation of oil and petroleum products No. 002849 of February 27, 2018, in accordance with the Federal Law "On Licensing Certain Types of Activities" No. 99-FZ of May 4, 2011, and regulatory acts that set specific requirements for this industry.'

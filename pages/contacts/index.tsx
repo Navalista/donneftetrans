@@ -1,23 +1,22 @@
-import React, { useState } from 'react'
-import { GetStaticProps, NextPage } from 'next'
+import React, { useEffect, useState } from 'react'
+import { NextPage } from 'next'
 import css from './index.module.scss'
-import { IContactsProps } from '@/types/pages/about'
-import { ContactsContent as content } from '@/i18n/pages/locales'
-import { useAppSelector } from '@/hooks/redux'
 import Loader from '@/components/UI/loader/Loader'
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
 import GC from '@/components/GC/GlobalComponent'
 import { CONTACTS } from '@/constants/contacts'
 
-const Contacts: NextPage = ({ content }: IContactsProps) => {
-   const lang = useAppSelector((state) => state.content.i18n)
-   const loc = content[lang]
+const Contacts: NextPage = () => {
    const { tel, tel_sd, tel_hrd, tel_td, mail } = CONTACTS
    const [isLoading, setLoading] = useState(true)
 
    const pre = (t: string) => t.replace(/(?!^\+)\D/g, '')
 
-   if (!isLoading) return <Loader />
+   useEffect(() => {
+      setLoading(false)
+   })
+
+   if (isLoading) return <Loader />
 
    return (
       <div className={css.wrapper}>
@@ -74,14 +73,6 @@ const Contacts: NextPage = ({ content }: IContactsProps) => {
          </div>
       </div>
    )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-   return {
-      props: {
-         content
-      }
-   }
 }
 
 export default Contacts

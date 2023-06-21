@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import { GetStaticProps, NextPage } from 'next'
+import React, { useEffect, useState } from 'react'
+import { NextPage } from 'next'
 import css from './index.module.scss'
-import { IAboutProps } from '@/types/pages/about'
 import Loader from '@/components/UI/loader/Loader'
 import GC from '@/components/GC/GlobalComponent'
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
@@ -9,11 +8,16 @@ import Image from 'next/image'
 import Vessels from '@/constants/fleet'
 import FTable from '@/components/Pages/fleet/table/FTable'
 
-const Fleet: NextPage = ({ content }: IAboutProps) => {
+const Fleet: NextPage = () => {
    const [isLoading, setLoading] = useState(true)
    const { oil, product } = Vessels
 
-   if (!isLoading) return <Loader />
+   useEffect(() => {
+      setLoading(false)
+   })
+
+   if (isLoading) return <Loader />
+
    return (
       <div className={css.wrapper}>
          <GC.Heading>{dynamicTranslate('fleet-title')}</GC.Heading>
@@ -31,14 +35,6 @@ const Fleet: NextPage = ({ content }: IAboutProps) => {
          </div>
       </div>
    )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-   return {
-      props: {
-         // content
-      }
-   }
 }
 
 export default Fleet
