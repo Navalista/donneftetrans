@@ -41,6 +41,8 @@ export default {
    'errors-name.count': { defaultMessage: 'Name cannot be less than 3 characters' },
    'errors-name.mail': { defaultMessage: 'Invalid email format' },
    'errors-name.comment': { defaultMessage: 'Comment field must not be empty' },
+   'errors-file.empty': { defaultMessage: 'You have not selected any files' },
+   'errors-file.ends': { defaultMessage: 'Incorrect file format. Only .pdf, .doc, .docx, .xlsx are accepted' },
    'fleet-title': { defaultMessage: 'Our Fleet' },
    'fleet-tankers.oil': { defaultMessage: 'Oil tankers' },
    'fleet-tankers.oil-desc': {
@@ -71,6 +73,17 @@ export default {
    'career-vac.find': { defaultMessage: 'The following vacancies for a tanker are opening in a shipping company' },
    'career-vessel.volgoneft-630': { defaultMessage: 'Volgoneft-630 project:' },
    'career-vessel.volgoneft-111': { defaultMessage: 'volgoneft-111 project:' },
+   'career-resume.file': { defaultMessage: 'Choose file' },
+   'career-resume.send': { defaultMessage: 'Send CV' },
+   'career-resume.title': { defaultMessage: 'Fill in CV' },
+   'career-resume.field-pos': { defaultMessage: 'Career objective' },
+   'career-resume.field-pos.ph': { defaultMessage: 'Chief Engineer' },
+   'career-resume.field-name': { defaultMessage: 'Full name' },
+   'career-resume.field-name.ph': { defaultMessage: 'Jane Doe' },
+   'career-resume.field-phone': { defaultMessage: 'Phone' },
+   'career-resume.field-phone.ph': { defaultMessage: '+7 863 777-77-77' },
+   'career-resume.field-mail': { defaultMessage: 'E-Mail' },
+   'career-resume.field-mail.ph': { defaultMessage: 'user@gmail.com' },
    'about-title': { defaultMessage: 'We Donneftetrans' },
    'about-description': {
       defaultMessage:

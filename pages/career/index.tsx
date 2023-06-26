@@ -9,6 +9,7 @@ import Tabs from '@/components/Pages/career-block/tabs/Tabs'
 import { TabsProps } from '@/constants/career'
 import TabsContent from '@/components/Pages/career-block/tabs-content/TabsContent'
 import TabsJobs from '@/components/Pages/career-block/tabs-content/TabsJobs'
+import TabsResume from '@/components/Pages/career-block/tabs-content/TabsResume'
 
 const Career: NextPage = () => {
    const [tab, setTab] = useState(0)
@@ -30,7 +31,7 @@ const Career: NextPage = () => {
                <Image src={`/assets/images/pages/career/${TabsProps[tab]._id}.png`} layout='fill' alt='License' />
             </div>
             <TabsContent tab={tab} />
-            <TabsJobs />
+            {tab !== 2 ? <TabsJobs /> : <TabsResume />}
          </div>
       </div>
    )

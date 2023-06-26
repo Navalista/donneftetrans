@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, LabelHTMLAttributes, ReactNode } from 'react'
 
 export type gcHeadingProps = {
    children: ReactNode
@@ -6,10 +6,11 @@ export type gcHeadingProps = {
 }
 
 export type gcButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-   AnchorHTMLAttributes<HTMLAnchorElement> & {
+   AnchorHTMLAttributes<HTMLAnchorElement> &
+   LabelHTMLAttributes<HTMLLabelElement> & {
       href?: string
       disabled?: boolean
-      buttonType?: 'anchor' | 'button'
+      buttonType?: 'anchor' | 'button' | 'label'
       buttonStyle?: 'filled' | 'unfilled'
       color?: 'primary' | 'secondary'
       isLoading?: boolean

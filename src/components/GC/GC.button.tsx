@@ -11,7 +11,8 @@ const GCButton: FC<gcButtonProps> = ({
    disabled,
    href,
    onClick,
-   isLoading = false
+   isLoading = false,
+   htmlFor
 }) => {
    switch (buttonType) {
       case 'button':
@@ -34,6 +35,18 @@ const GCButton: FC<gcButtonProps> = ({
                   {children}
                </a>
             </Link>
+         )
+      case 'label':
+         return (
+            <label
+               htmlFor={htmlFor}
+               data-color={color}
+               data-type={buttonStyle}
+               className={css.wrapper + `${isLoading ? ' ' + css.loading : ''}`}
+               data-disabled={disabled}
+            >
+               {isLoading ? <span className={css.loader} /> : children}
+            </label>
          )
       default:
          return
