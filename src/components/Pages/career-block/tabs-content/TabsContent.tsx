@@ -1,7 +1,6 @@
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { FC } from 'react'
 import css from './TabsContent.module.scss'
-import { ITabsProps } from '@/constants/career'
 
 interface ITabsContent {
    tab: number

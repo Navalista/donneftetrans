@@ -68,6 +68,9 @@ export default {
          'We invite officers and ratings to work on our vessels. We offer formal employment, decent wages, career opportunities. To consider employment, you must fill out a '
    },
    'career-resume.link': { defaultMessage: "seafarer's questionnaire." },
+   'career-vac.find': { defaultMessage: 'The following vacancies for a tanker are opening in a shipping company' },
+   'career-vessel.volgoneft-630': { defaultMessage: 'Volgoneft-630 project:' },
+   'career-vessel.volgoneft-111': { defaultMessage: 'volgoneft-111 project:' },
    'about-title': { defaultMessage: 'We Donneftetrans' },
    'about-description': {
       defaultMessage:
