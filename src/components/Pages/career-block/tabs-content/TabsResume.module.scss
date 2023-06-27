@@ -7,8 +7,7 @@
       width: fit-content;
       margin: 0 auto;
       border-radius: 1rem;
-      min-width: 36rem;
-      max-width: 36rem;
+      min-width: 30rem;
       box-shadow: 0 0 1rem 0px rgba(206, 206, 206, 0.4);
       h5 {
          text-align: center;
@@ -62,7 +61,7 @@
          display: flex;
          align-items: center;
          justify-content: space-between;
-         padding: 2rem;
+         padding: 2rem 2rem 2.8rem;
          .choose {
             display: flex;
             align-items: center;
@@ -84,20 +83,23 @@
                margin-left: 1rem;
                border-radius: 0.2rem;
             }
-            p {
-               font-size: 0.8rem;
-               max-width: 11.8rem;
-               overflow: hidden;
-               margin: 0 1rem;
-            }
          }
       }
       p.error {
          position: absolute;
-         bottom: 0.8rem;
+         bottom: 1.5rem;
          color: #d2232a;
-         font-size: 0.8rem;
+         font-size: 0.7rem;
          white-space: nowrap;
+      }
+      p.fileName {
+         position: absolute;
+         left: 50%;
+         bottom: 0.5rem;
+         transform: translateX(-50%);
+         font-size: 0.7rem;
+         max-width: 11.8rem;
+         overflow: hidden;
       }
    }
 }

@@ -102,13 +102,13 @@ const TabsResume: FC = () => {
                      {dynamicTranslate('career-resume.file')}
                   </GC.Button>
                   <span style={{ backgroundImage: `url(/assets/images/svg/${icon})` }} />
-                  <p>{fileName}</p>
                   <p className={css.error}>{error.file}</p>
                </div>
                <GC.Button onClick={() => console.log()} color='secondary' buttonStyle='filled'>
                   {dynamicTranslate('career-resume.send')}
                </GC.Button>
             </div>
+            <p className={css.fileName}>{fileName}</p>
          </div>
       </div>
    )
