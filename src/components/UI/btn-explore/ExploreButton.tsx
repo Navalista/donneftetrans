@@ -9,7 +9,7 @@ interface IExploreButton {
 
 const ExploreButton: FC<IExploreButton> = ({ style, href }) => {
    return (
-      <a onClick={() => console.log('sdf')} style={{ ...style }} className={st.button}>
+      <a href={href} style={{ ...style }} className={st.button}>
          <i />
          <span>{dynamicTranslate('btn-explore')}</span>
       </a>

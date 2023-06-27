@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
 import { useAppSelector } from '@/hooks/redux'
-import useHover from '@/hooks/useHover'
 import HeadingMain from '../../heading-main/HeadingMain'
 import MainBlockService from './MainBlockService'
 import css from './MainBlock.module.scss'
@@ -15,7 +14,6 @@ import bg_5 from '@/img/pages/main/slider/main-bg-5.jpg'
 const MainBlock: FC<IMainProps> = ({ content }) => {
    const isLaptop = useAppSelector((state) => state.content.mediaQuery.isLaptop)
    const ref = useRef()
-   const isHovering = useHover(ref)
    const [currentImage, setCurrentImage] = useState(1)
 
    const { title, services } = content

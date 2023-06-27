@@ -15,7 +15,7 @@ const HeaderNav = () => {
             const [{ href }] = Object.values(page)
 
             return (
-               <Link key={i} href={href}>
+               <Link key={i} href={`${href}`}>
                   <a className={css.link + ` ${currentPage === name ? css.active : ''}`}>
                      {dynamicTranslate(`header-link.${name}`)}
                   </a>

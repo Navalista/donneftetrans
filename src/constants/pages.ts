@@ -11,22 +11,22 @@ export type IPAGES = {
 export const PAGES: IPAGES[] = [
    {
       'about-us': {
-         href: '/about-us'
+         href: 'about-us'
       }
    },
    {
       fleet: {
-         href: '/fleet'
+         href: 'fleet'
       }
    },
    {
       career: {
-         href: '/career'
+         href: 'career'
       }
    },
    {
       contacts: {
-         href: '/contacts'
+         href: 'contacts'
       }
    }
 ]

@@ -32,7 +32,7 @@ const ServicesBlock: FC<{ content: IMainBlock[] }> = ({ content }) => {
          {content.map((service, i) => {
             const { title, description } = service
             return (
-               <section key={i}>
+               <section id={`page-${i}`} key={i}>
                   <div className={css.block}>
                      <div className={css.image}>
                         <Image src={images[i]} width={500} height={500} alt='Service' />

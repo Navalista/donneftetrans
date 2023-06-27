@@ -2,15 +2,12 @@ import Link from 'next/link'
 import React, { FC, useState } from 'react'
 import BurgerButton from '../UI/btn-burger/BurgerButton'
 import st from './HeaderMobileMenu.module.scss'
-import header from '../../i18n/components/header.json'
 import { ILayoutComponentProps } from '../../types/layout'
-import { IHeader } from '../../types/header'
 import { dynamicTranslate } from '@/i18n/pages/locales/helpers'
+import { PAGES } from '@/constants/pages'
 
 const HeaderMobileMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
    const [isOpen, setisOpen] = useState(false)
-   const { links }: IHeader = header
-
    return (
       <div className={st.wrapper}>
          <BurgerButton isOpen={isOpen} setisOpen={setisOpen} scrollStep={scrollStep} />
@@ -23,11 +20,12 @@ const HeaderMobileMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
                }}
             >
                <nav>
-                  {links.map((link, i) => {
+                  {PAGES.map((page, i) => {
+                     const [{ href }] = Object.values(page)
                      return (
                         <div key={i} className={st.link}>
-                           <Link href={link.href}>
-                              <a onClick={() => setisOpen(false)}>{dynamicTranslate(`header-link.${link.id}`)}</a>
+                           <Link href={href}>
+                              <a onClick={() => setisOpen(false)}>{dynamicTranslate(`header-link.${href}`)}</a>
                            </Link>
                         </div>
                      )

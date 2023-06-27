@@ -8,20 +8,15 @@ const MainBlockService: FC<{ blocks: IMainBlock[] }> = ({ blocks }) => {
    return (
       <>
          {blocks.map((block, i) => {
-            const { title, description, loc, icon } = block
+            const { title, description, href } = block
             return (
                <div key={i} className={st.block}>
                   <span className={st.border} />
                   <div>
                      <h2>{title}</h2>
-                     <span
-                        style={{
-                           backgroundImage: `url(/assets/images/svg/${icon})`
-                        }}
-                     />
                   </div>
                   <p>{description.substring(0, letters)}...</p>
-                  <ExploreButton href={loc} />
+                  <ExploreButton href={href} />
                </div>
             )
          })}
