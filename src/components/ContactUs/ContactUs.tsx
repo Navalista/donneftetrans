@@ -68,7 +68,7 @@ const ContactUs: FC = () => {
       const isNotValid = validation()
       if (isNotValid) return setisLoading(false)
       try {
-         const response = await axios.post('/api/sendEmail', data)
+         const response = await axios.post('/api/send-email', data)
          console.log('Success:', response.data)
       } catch (error) {
          console.error('Error:', error)
