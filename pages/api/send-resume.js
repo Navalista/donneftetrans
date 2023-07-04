@@ -10,7 +10,7 @@ export const config = {
 }
 
 const upload = multer({
-   dest: 'uploads/',
+   dest: '/tmp',
    limits: {
       fileSize: 5 * 1024 * 1024
    },
