@@ -32,15 +32,20 @@ const TabsJobs: FC = () => {
                                     key={i}
                                     className={!description ? css.disable : activeButtonIndex === i ? css.active : ''}
                                  >
-                                    <div className={css.icon}>
-                                       <Image src={`/assets/images/svg/vac-${_id}.svg`} layout='fill' alt={title} />
+                                    <div className={css.vac_block}>
+                                       <div className={css.icon}>
+                                          <Image src={`/assets/images/svg/vac-${_id}.svg`} layout='fill' alt={title} />
+                                       </div>
+                                       <span className={css.title}>{title}</span>
+                                       <span className={css.open} />
                                     </div>
-                                    <span className={css.title}>{title}</span>
-                                    <span className={css.open} />
+                                    {description && activeButtonIndex === i && (
+                                       <div className={css.desc}>{description}</div>
+                                    )}
                                  </li>
-                                 {description && activeButtonIndex === i && (
+                                 {/* {description && activeButtonIndex === i && (
                                     <div className={css.desc}>{description}</div>
-                                 )}
+                                 )} */}
                               </>
                            )
                         })}

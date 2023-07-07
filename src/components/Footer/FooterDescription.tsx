@@ -11,9 +11,25 @@ interface IDescription {
    setisDescription: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+const Desc: FC<{ type: string }> = ({ type }) => {
+   const { phone } = FOOTER.find((obj) => 'phone' in obj)
+   const { mail } = FOOTER.find((obj) => 'mail' in obj)
+   console.log(type)
+
+   if (type) {
+      switch (type) {
+         case 'phone':
+            return <a href={`tel:${phone.number.replace(/(?!^\+)\D/g, '')}`}>{phone.number}</a>
+         case 'mail':
+            return <a href={`mailto:${mail.url}`}>{mail.url}</a>
+         default:
+            return <p>{dynamicTranslate(`footer-${type}`)}</p>
+      }
+   }
+}
+
 const FooterDescription: FC<IDescription> = ({ descContent, isDescription, setisDescription }) => {
    const { type, icon } = descContent
-   const { phone } = FOOTER.find((obj) => 'phone' in obj)
 
    return (
       <CSSTransition
@@ -32,15 +48,7 @@ const FooterDescription: FC<IDescription> = ({ descContent, isDescription, setis
                   backgroundImage: `url(/assets/images/svg/footer-${icon})`
                }}
             />
-            {type ? (
-               type !== 'phone' ? (
-                  <p>{dynamicTranslate(`footer-${type}`)}</p>
-               ) : (
-                  <a href={`tel:${phone.number.replace(/(?!^\+)\D/g, '')}`}>{phone.number}</a>
-               )
-            ) : (
-               ''
-            )}
+            <Desc type={type} />
             <button onClick={() => setisDescription(false)}>&#x2716;</button>
          </div>
       </CSSTransition>

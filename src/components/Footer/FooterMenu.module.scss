@@ -61,7 +61,7 @@
                   top: 25px;
                }
             }
-            &[data-type='info'] {
+            &[data-type='mail'] {
                transition-delay: 0.3s;
                transform: translateY(90px) rotate(720deg) scale(0.9);
                opacity: 0;
@@ -70,7 +70,7 @@
                   top: -42px;
                }
                & > span {
-                  background-size: 30%;
+                  background-size: 65%;
                }
             }
          }
@@ -84,7 +84,7 @@
                transform: translateY(0) rotate(0deg) scale(1.1);
                opacity: 1;
             }
-            &[data-type='info'] {
+            &[data-type='mail'] {
                transform: translateY(-20px) rotate(0deg) scale(0.9);
                opacity: 1;
             }

@@ -37,7 +37,8 @@
          ul {
             li {
                display: flex;
-               align-items: center;
+               flex-direction: column;
+               align-items: flex-start;
                cursor: pointer;
                user-select: none;
                .icon {
@@ -56,6 +57,10 @@
                      top: 0.9rem;
                      transform: translateX(-50%);
                   }
+               }
+               .vac_block {
+                  display: flex;
+                  align-items: center;
                }
                padding: 0.5rem 1rem 0.4rem 0.2rem;
                border: 2px solid $color-first;
@@ -91,9 +96,10 @@
                }
             }
             .desc {
+               position: relative;
                max-width: 50rem;
                line-height: 1.3;
-               padding: 1rem 1rem 0;
+               padding: 1rem 0rem 0.5rem 0.8rem;
             }
             .disable {
                cursor: auto;

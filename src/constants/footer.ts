@@ -1,4 +1,4 @@
-export type Item = 'address' | 'phone' | 'info'
+export type Item = 'address' | 'phone' | 'mail'
 
 export type IFOOTER = {
    [key in Item]?: Record<string, string>
@@ -17,8 +17,9 @@ export const FOOTER: IFOOTER[] = [
       }
    },
    {
-      info: {
-         icon: 'info.svg'
+      mail: {
+         url: 'donneftetrans@gmail.com',
+         icon: 'mail.svg'
       }
    }
 ]

@@ -17,7 +17,7 @@ const Description: FC = () => {
                {dynamicTranslate('main-description.button')}
             </GC.Button>
          </div>
-         <Image src='/assets/images/pages/main/description/background.jpg' width={800} height={800} alt='Tanker' />
+         <Image src='/assets/images/pages/main/description/background.png' width={800} height={800} alt='Tanker' />
       </div>
    )
 }

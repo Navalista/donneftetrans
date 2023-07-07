@@ -9,7 +9,7 @@ export default {
       'footer-address': '344019, Rostov-on-Don, Zakrutkina Street 67V/2B, Office 417',
       'footer-address.tip': 'Find us',
       'footer-info': 'We Donneftetrans',
-      'footer-info.tip': 'Information',
+      'footer-mail.tip': 'Send mail',
       'footer-copyright': 'Donneftetrans. All rights reserved',
       'footer-phone.tip': 'Contact us',
       'btn-explore': 'Explore',

@@ -9,7 +9,7 @@ export default {
       'footer-address': '344019, г. Ростов-на-Дону, ул. Закруткина 67В/2Б, офис 417',
       'footer-address.tip': 'Мы на карте',
       'footer-info': 'Мы большая компания Доннефтетранс',
-      'footer-info.tip': 'Информация',
+      'footer-info.tip': 'Свяжитесь с нами',
       'footer-copyright': 'Доннефтетранс. Все права защищены',
       'footer-phone.tip': 'Свяжитеcь с нами',
       'btn-explore': 'Посмотреть',
