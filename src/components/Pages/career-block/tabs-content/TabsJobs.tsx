@@ -43,9 +43,6 @@ const TabsJobs: FC = () => {
                                        <div className={css.desc}>{description}</div>
                                     )}
                                  </li>
-                                 {/* {description && activeButtonIndex === i && (
-                                    <div className={css.desc}>{description}</div>
-                                 )} */}
                               </>
                            )
                         })}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import css from './index.module.scss'
 import Loader from '@/components/UI/loader/Loader'
@@ -10,6 +10,17 @@ import { TabsProps } from '@/constants/career'
 import TabsContent from '@/components/Pages/career-block/tabs-content/TabsContent'
 import TabsJobs from '@/components/Pages/career-block/tabs-content/TabsJobs'
 import TabsResume from '@/components/Pages/career-block/tabs-content/TabsResume'
+
+const Tab: FC<{ tab: number }> = ({ tab }) => {
+   switch (tab) {
+      case 0:
+         return <TabsJobs />
+      case 2:
+         return <TabsResume />
+      default:
+         return
+   }
+}
 
 const Career: NextPage = () => {
    const [tab, setTab] = useState(0)
@@ -31,7 +42,7 @@ const Career: NextPage = () => {
                <Image src={`/assets/images/pages/career/${TabsProps[tab]._id}.png`} layout='fill' alt='License' />
             </div>
             <TabsContent tab={tab} />
-            {tab !== 2 ? <TabsJobs /> : <TabsResume />}
+            <Tab tab={tab} />
          </div>
       </div>
    )
