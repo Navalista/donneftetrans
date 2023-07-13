@@ -3,6 +3,9 @@
 .wrapper {
    .block {
       padding-top: 2rem;
+      @media (max-width: 715px) {
+         padding-top: 0;
+      }
       h3 {
          position: relative;
          text-align: center;

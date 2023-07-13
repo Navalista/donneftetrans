@@ -15,8 +15,8 @@ const HeaderMobileMenu: FC<ILayoutComponentProps> = ({ scrollStep }) => {
             <div
                className={st.list}
                style={{
-                  top: scrollStep > 0 ? '$header-mobile-height' : '$header-height',
-                  height: scrollStep > 0 ? 'calc(100vh - $header-mobile-height' : 'calc(100vh - $header-height)'
+                  top: scrollStep > 0 ? '50px' : '80px',
+                  height: scrollStep > 0 ? 'calc(100vh - 50px' : 'calc(100vh - 80px)'
                }}
             >
                <nav>

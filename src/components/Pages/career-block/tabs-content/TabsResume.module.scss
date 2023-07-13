@@ -1,6 +1,10 @@
 @import '/styles/variables';
 
 .wrapper {
+   margin-bottom: 2rem;
+   @media (max-width: 518px) {
+      padding: 1rem;
+   }
    .form {
       box-sizing: border-box;
       position: relative;
@@ -9,6 +13,10 @@
       border-radius: 1rem;
       min-width: 30rem;
       box-shadow: 0 0 1rem 0px rgba(206, 206, 206, 0.4);
+      @media (max-width: 518px) {
+         width: auto;
+         min-width: auto;
+      }
       h5 {
          text-align: center;
          background-color: #fff;
@@ -67,6 +75,10 @@
          align-items: center;
          justify-content: space-between;
          padding: 2rem 2rem 2.8rem;
+         @media (max-width: 518px) {
+            flex-direction: column;
+            gap: 1rem;
+         }
          .choose {
             display: flex;
             align-items: center;
