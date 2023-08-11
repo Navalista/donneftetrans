@@ -14,7 +14,6 @@ interface IDescription {
 const Desc: FC<{ type: string }> = ({ type }) => {
    const { phone } = FOOTER.find((obj) => 'phone' in obj)
    const { mail } = FOOTER.find((obj) => 'mail' in obj)
-   console.log(type)
 
    if (type) {
       switch (type) {
