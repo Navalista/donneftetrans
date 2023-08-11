@@ -23,7 +23,7 @@ const TabsJobs: FC = () => {
                   <div key={i} className={css.vessel}>
                      <h4>{dynamicTranslate(`career-vessel.${vessel}`)}</h4>
                      <ul>
-                        {currentVacs.map((_) => {
+                        {currentVacs.map((_, i) => {
                            const { title, description, _id } = _
                            return (
                               <>
