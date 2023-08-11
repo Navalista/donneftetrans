@@ -70,7 +70,7 @@ export default {
          'We invite officers and ratings to work on our vessels. We offer formal employment, decent wages, career opportunities. To consider employment, you must fill out a ',
       'career-vac.title-coast':
          'We invite you to work in our friendly team for the position of Marine Superintendent and Tech Superintendent. Mandatory work experience as a Master, Chief Officer or Chief Engineer, Second Engineer; experience in PSC, FSC; readiness for business trips.',
-      'career-resume.link': 'SV.',
+      'career-resume.link': 'CV.',
       'career-vac.find': 'The following vacancies for a tanker are opening in a shipping company',
       'career-vessel.volgoneft-630': 'Volgoneft-630 project:',
       'career-resume.file': 'Choose file',
